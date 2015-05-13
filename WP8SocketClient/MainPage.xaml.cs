@@ -44,5 +44,14 @@ namespace WP8SocketClient
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
         }
+
+        private void btnConnect_Click(object sender, RoutedEventArgs e)
+        {
+            SocketClient sockCli = new SocketClient();
+
+            sockCli.SendMessage("request", txtHostName.Text, txtPortNumber.Text);
+            sockCli.Close();
+        }
+
     }
 }

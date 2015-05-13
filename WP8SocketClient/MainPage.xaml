@@ -8,7 +8,47 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+        <TextBlock x:Name="ApplicationTitle" Text="TCP Socket Application" Style="{StaticResource TitleTextBlockStyle}"/>
+        <TextBlock x:Name="PageTitle" Text="Client" Margin="9,-7,0,0" Style="{StaticResource SubheaderTextBlockStyle}"/>
 
-    </Grid>
+        <Grid x:Name="ContentPanel" Margin="12,0,12.333,8" RenderTransformOrigin="0.497,0.653">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="72"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+
+            <!-- Grid Row 0: Remote Host Input Field >-->
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Host Name:"  
+               VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14" FontFamily="Segoe WP" Height="19" Margin="0,13,0.333,12.167" Width="73" />
+
+            <TextBox x:Name="txtHostName" Grid.Row="0" Grid.Column="1"  Height="34" Width="200" 
+                VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0.667,10,0,0" Text="127.0.0.1" FontSize="14"  />
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Port:" 
+                VerticalAlignment="Center" HorizontalAlignment="Right" 
+                Style="{StaticResource BaseTextBlockStyle}" FontSize="14" Height="19" Margin="0,9.833,3.75,14.5" Width="29" />
+
+            <TextBox x:Name="txtPortNumber" Grid.Row="1" Grid.Column="1" Height="34" Width="200"  
+                VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0.667,8.833,0,0" Text="3000" FontSize="14" />
+
+            <Button x:Name="btnConnect" Grid.Row="2" Height="58" 
+                Content="Connect" Click="btnConnect_Click" Margin="153.75,0.5,0,13.5" Grid.Column="1" Width="109"/>
+
+            <TextBlock x:Name="txtChat" Grid.Row="3" Grid.ColumnSpan="2" Height="223" TextWrapping="Wrap" Text="Chat History"/>
+
+            <TextBox x:Name="txtMsg" Margin="0,2.5,-17.333,48.5" Grid.Row="5" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Chat" VerticalAlignment="Stretch" FontSize="14"/>
+
+            <Button x:Name="btnSend" Content="Send"  Grid.Row="5" Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="154.25,53.167,-11.5,-27.167"/>
+        </Grid>
+    </StackPanel>
 </Page>
